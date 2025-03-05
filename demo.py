@@ -126,15 +126,39 @@
 #Given a dictionary check which task has the highest priority and return
 # if priority has the same number 1-10  return the first in the alphabet
 
-def get_highest_priority_task(tasks):
-    highest_priority = -1
-    highest_priority_task = ""
-    for task, priority in tasks.items():
-        if priority > highest_priority or (priority == highest_priority and task < highest_priority_task):
-            highest_priority = priority
-            highest_priority_task = task
-    return highest_priority_task
+# def get_highest_priority_task(tasks):
+#     highest_priority = -1
+#     highest_priority_task = ""
+#     for task, priority in tasks.items():
+#         if priority > highest_priority or (priority == highest_priority and task < highest_priority_task):
+#             highest_priority = priority
+#             highest_priority_task = task
+#     return highest_priority_task
 
-tasks = {"task1": 8, "task2": 1, "task3": 9, "task4": 10, "task5": 7}
-perform_task = get_highest_priority_task(tasks)
-print(perform_task)
+# tasks = {"task1": 8, "task2": 1, "task3": 9, "task4": 10, "task5": 7}
+# perform_task = get_highest_priority_task(tasks)
+# print(perform_task)
+
+# def count_mississippi(limit):
+#     for num in range(1, limit):
+# 	    print( f"{num} mississippi")
+     
+# count_mississippi(6)
+
+#Problem 5: First Unique
+#Find the non-repeating char in the string
+# if it doesnt exist return -1
+
+def first_unique_char(my_str):
+    my_char = {}
+    for i in my_str:
+        if i in my_char:
+            my_char[i] += 1 
+        else:
+            my_char[i] = 1
+    for i , value in my_char.items():
+        if value == 1:
+            return i 
+    return -1
+my_str = "l"
+print(first_unique_char(my_str))
