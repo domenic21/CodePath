@@ -149,16 +149,75 @@
 #Find the non-repeating char in the string
 # if it doesnt exist return -1
 
-def first_unique_char(my_str):
-    my_char = {}
-    for i in my_str:
-        if i in my_char:
-            my_char[i] += 1 
+# def first_unique_char(my_str):
+#     my_char = {}
+#     for i in my_str:
+#         if i in my_char:
+#             my_char[i] += 1 
+#         else:
+#             my_char[i] = 1
+#     for i , value in my_char.items():
+#         if value == 1:
+#             return i 
+#     return -1
+# my_str = "l"
+# print(first_unique_char(my_str))
+
+# s = "Python"
+# reversed_s = s[::-1]
+# result = reversed_s + "rocks"
+# print(result)
+
+#date dd/mm/yyyy check if month is valid between 1-12
+# date = "12/13/2023"
+# # month = date[3:5]
+# # is_valid = int(month) >= 1 and int(month) <= 12
+# # print(is_valid)
+# is_valid= 1<= int(date[3:5]) <= 12
+# print(is_valid)
+
+#Func that takes a string an returns a dict with each character
+#as keys and frequency as values
+# def char_count(string):
+#     frequency = {}
+#     for char in string:
+#         char = char.lower()
+#         # Ignore spaces
+#         if char == ' ':
+#             continue
+#         if char in frequency:
+#             frequency[char] += 1
+#         else:
+#             frequency[char] = 1
+#     return frequency
+        
+
+# string = 'Hello World'
+# result = char_count(string)
+# print(result)
+
+#Output: {'h': 1, 'e': 1, 'l': 3, 'o': 2, 'w': 1, 'r': 1, 'd': 1}
+
+# The function is expected to return a BOOLEAN.
+# The function accepts following parameters:
+#  1. STRING message
+#  2. STRING magazine
+
+def ransrom_note (message, magazine):
+    mag_count = {}
+    for char in magazine:
+        if char in mag_count:
+            mag_count[char] += 1
         else:
-            my_char[i] = 1
-    for i , value in my_char.items():
-        if value == 1:
-            return i 
-    return -1
-my_str = "l"
-print(first_unique_char(my_str))
+            mag_count[char] = 1
+
+    for char in message:
+        if char in mag_count and mag_count[char] > 0:
+            mag_count[char] -= 1
+        else:
+            return False
+    return True
+    
+message = "bca"
+magazine = "abc"
+print(ransrom_note(message, magazine)) # Output: False
