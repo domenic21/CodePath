@@ -203,21 +203,98 @@
 #  1. STRING message
 #  2. STRING magazine
 
-def ransrom_note (message, magazine):
-    mag_count = {}
-    for char in magazine:
-        if char in mag_count:
-            mag_count[char] += 1
-        else:
-            mag_count[char] = 1
+# def ransrom_note (message, magazine):
+#     mag_count = {} # create an empty dictionary
+#     for char in magazine: # for each character in the magazine
+#         if char in mag_count: # if the character is in the dictionary mag_count
+#             # increment the value by 1
+#             mag_count[char] += 1
+#         else: # if the character is not in the dictionary mag_count = 1 because 
+#             mag_count[char] = 1 # add the character to the dictionary with a value of 1
+#     # for each character in the message 
+#     # check if the character is in the dictionary mag_count
+#     # if the character is in the dictionary mag_count
+#     # decrement the value by 1
+#     # if the character is not in the dictionary mag_count return false
+#     # if the value is less than 0 return false
+#     # if the character is not in the dictionary mag_count return false
 
-    for char in message:
-        if char in mag_count and mag_count[char] > 0:
-            mag_count[char] -= 1
-        else:
-            return False
-    return True
+#     for char in message:
+#         if char in mag_count and mag_count[char] > 0:
+#             mag_count[char] -= 1
+#         else:
+#             return False
+#     return True
     
-message = "bca"
-magazine = "abc"
-print(ransrom_note(message, magazine)) # Output: False
+# message = "bca"
+# magazine = "abc"
+# print(ransrom_note(message, magazine)) # Output: False
+
+#Week 4 Pointers 
+
+
+# class Dog:
+#     def __init__(self, name, breed, owner):
+#         self.name = name
+#         self.breed = breed
+#         self.owner = owner
+
+#     def bark(self):
+#         print('Woof!')
+        
+# dog1 = Dog('Buddy', 'Golden Retriever', 'Alice')
+# dog2 = Dog('Max', 'Bulldog', 'Bob')
+
+# dog1.bark()  # Output: Woof!
+# dog2.bark()  # Output: Woof!
+
+
+
+
+# class Node:
+#     def __init__(self, value, next=None):
+#         self.value = value
+#         self.next = next
+
+# def get_last(head):
+#     if not head:
+#         return None
+#     current = head
+#     while current.next:
+#         current = current.next
+#     return current.value
+
+# node1 = Node(1)
+# node2 = Node(2)
+# node3 = Node(3)
+# node1.next = node2
+# node2.next = node3
+
+# print(get_last(node1))  # Output: 3
+
+
+
+# class Person:
+#   def __init__(self, first, last):
+#     self.last_name = last
+#     self.first_name = first
+#     self.children = []
+
+#   def add_child(self, child):
+#     self.children.append(child)
+    
+#   # Write your code here
+#   def get_grandchildren(self):
+#     grandchildren = []
+#     for child in self.children:
+#       grandchildren.extend(child.children)
+#     return grandchildren
+
+
+
+
+
+
+
+
+
