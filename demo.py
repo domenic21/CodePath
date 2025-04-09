@@ -292,9 +292,350 @@
 
 
 
+# class Node:
+#     def __init__(self, value, next=None):
+#         # Initialize a node with a value and a pointer to the next node
+#         self.value = value
+#         self.next = next
+
+# def is_palindrome(head):
+#     # Step 1: Use slow and fast pointers to find the middle of the linked list
+#     slow, fast = head, head  # Both start at the head of the list
+#     while fast and fast.next:  # Move until fast reaches the end of the list
+#         slow = slow.next  # Slow moves one step
+#         fast = fast.next.next  # Fast moves two steps
+
+#     # At this point, slow is at the middle of the list because fast has reached the end
+#     # If the list has an odd number of elements, slow will be at the middle element
+#     # If the list has an even number of elements, slow will be at the first element of the second half
+    
+
+#     # Step 2: Reverse the second half of the list starting from the slow pointer
+#     prev = None  # Initialize a variable to store the previous node
+#     while slow:  # Traverse the second half of the list
+#         temp = slow.next  # Temporarily store the next node
+#         slow.next = prev  # Reverse the current node's pointer
+#         prev = slow  # Move prev to the current node
+#         slow = temp  # Move slow to the next node
+
+#     # Now, prev points to the head of the reversed second half
+
+#     # Step 3: Compare the values of the first half and the reversed second half
+#     left, right = head, prev  # Initialize pointers for comparison
+#     while right:  # Only need to traverse the reversed half
+#         if left.value != right.value:  # If values don't match, it's not a palindrome
+#             return False
+#         left = left.next  # Move left pointer forward
+#         right = right.next  # Move right pointer forward
+
+#     return True  # If all values match, it's a palindrome
+# head = Node(1, Node(2, Node(1 )))
+# print(is_palindrome(head))  # Output: True
 
 
 
 
+# class Node:
+#     def __init__(self, value, next=None):
+#         self.value = value
+#         self.next = next
+
+# def is_circular(head):
+	
+#         if not head:
+#             return False
+        
+#         slow = head  # Starts at the head
+#         fast = head  # Also starts at the head
+
+#         while fast and fast.next:
+#             slow = slow.next          # Move slow pointer by one
+#             fast = fast.next.next     # Move fast pointer by two
+
+#             if slow == fast:          # If they meet, there's a cycle
+#                break
+        
+#         if not fast or not fast.next: # If fast reaches the end, no cycle
+#             return None
+
+#         # Reset slow to head to find the start of the cycle
+#         slow = head
+#         while slow != fast:
+#             slow = slow.next
+#             fast = fast.next
+
+#         # Find the tail of the cycle
+#         tail = slow
+#         while tail.next != slow:
+#             tail = tail.next
+
+#         return tail.value  # Return the value of the tail node
 
 
+# node1 = Node(1)
+# node2 = Node(2)
+# node3 = Node(3)
+# node4 = Node(4)
+
+
+# # Creates a cycle starting from node1 to node3
+# node1.next = node2
+# node2.next = node3
+# node3.next = node4
+# node4.next = node2  # Creates a cycle by linking node4 to node2
+
+
+# print(is_circular(node1)) 
+
+# class Node:
+#     def __init__(self, value, next_node = None, prev_node = None):
+#         self.value = value
+#         self.next_node = next_node
+#         self.prev_node = prev_node
+
+# def mystery_function(head):
+#     if head is head:
+#         return None
+#     output_node = head.next_node
+#     if output_node is not None:
+#         output_node.prev_node = None
+#     head.next_node = None
+#     return output_node
+    
+# head = Node(1)
+# node2 = Node(2)
+# node3 = Node(3)
+# head.next_node = node2
+# node2.prev_node = head
+# node2.next_node = node3
+# node3.prev_node = node2
+# head = mystery_function(head)
+
+
+
+
+# # Define a Node class to represent elements in a linked list
+# class Node:
+#     def __init__(self, value, next_node=None):
+#         # Initialize the value of the node
+#         self.value = value
+#         # Initialize the reference to the next node in the list
+#         self.next_node = next_node
+
+# # Function to process a linked list and return specific values
+# def mystery_function(head):
+#     # Start at the head of the linked list
+#     current = head
+#     # Initialize an empty list to store the output
+#     output = []
+    
+#     # Traverse the linked list
+#     while current:
+#         # If the value of the current node is even, add it to the output list
+#         if current.value % 2 == 0:
+#             output.append(current.value)
+#         # Move to the next node in the linked list
+#         current = current.next_node
+    
+#     # Return the list of even values
+#     return output
+
+# # Create a linked list: 1 -> 2 -> 3 -> 4
+# head = Node(1, Node(2, Node(3, Node(4))))
+
+# # Call the mystery_function and store the result
+# output = mystery_function(head)
+
+# # Print the resulting list of even values
+# print(output)  # Output: [2, 4]
+
+
+# ####################
+# class Node:
+#     def __init__(self, value, next=None):
+#         self.value = value
+#         self.next = next
+
+# def shuffle_linked_list(head):
+#     if not head or not head.next:  # If the list has 0 or 1 node, no changes are needed
+#         return head
+
+#     # Initialize pointers
+#     current = head
+
+#     # Traverse the list and swap adjacent nodes
+#     while current and current.next:
+#         # Swap the values of the current node and the next node
+#         current.value, current.next.value = current.next.value, current.value
+#         # Move to the next pair of nodes
+#         current = current.next.next
+
+#     return head
+
+# # Helper function to print the linked list
+# def print_linked_list(head):
+#     current = head
+#     result = []
+#     while current:
+#         result.append(current.value)
+#         current = current.next
+#     print(" -> ".join(map(str, result)))
+
+# # Example usage
+# head = Node(1, Node(2, Node(3, Node(4, Node(5)))))  # Linked list: 1 -> 2 -> 3 -> 4 -> 5
+# print("Original list:")
+# print_linked_list(head)
+
+# shuffled_head = shuffle_linked_list(head)
+# print("Shuffled list:")
+# print_linked_list(shuffled_head)  # Output: 2 -> 1 -> 4 -> 3 -> 5
+
+######
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+# class Solution:
+#     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+
+#         if not headA or not headB:
+#             return None
+#         pA, pB = headA, headB
+#         while pA != pB:
+#             pA= headB if pA is None else pA.next
+#             pB = headA if pB is None else pB.next
+#         return pA
+
+#unit 7 : recussion
+# def repeat_hello(n):
+# 	if n > 0:
+# 		print("Hello")
+# 		repeat_hello(n - 1)
+		
+# repeat_hello(5)
+
+# def repeat_hello_iterative():
+#     for i in range(5):
+#         print("Hello")
+# repeat_hello_iterative()
+
+# # factorial cases 
+# def factorial(n):
+#     if n == 0:
+#         return 1 
+#     else:
+#         return n * factorial(n-1 )
+# print(factorial(5))
+
+# recusrive sum
+
+# def sum_list(lst):
+#     if not lst:
+#         return 0
+#     return lst[0] + sum_list(lst[1:])
+# lst = [1, 2, 3, 4, 5]
+# print(sum_list(lst))
+
+# def binary_search(lst, target):
+# 	# Initialize a left pointer to the 0th index in the list
+# 	# Initialize a right pointer to the last index in the list
+        
+# 	    left = 0 
+#         rigth = 0
+	# While left pointer is less than right pointer:
+		# Find the middle index of the array
+		
+		# If the value at the middle index is the target value:
+			# Return the middle index
+		# Else if the value at the middle index is less than our target value:
+			# Update pointer(s) to only search right half of the list in next loop iteration
+		# Else
+			# Update pointer(s) to only search left half of the list in next loop iteration
+	
+	# If we search whole list and haven't found target value, return -1
+# def sum_list(lst):
+#     if not lst:
+#         return 0
+#     else:
+#         return lst[0] + sum_list(lst[1:])
+# lst =[1, 2, 3, 4, 5]
+# print(sum_list(lst))
+
+# Problem 4
+
+#understand: 
+# function return true if the input is a power of 2 and false otherwise 
+
+#plan
+
+# def is_power_of_two(n):
+#     #Base case
+
+#     if n % 2  != 0:
+#         return False
+#     if n == 2:
+#         return True
+#     else: #work#break#engine
+# Binary search I
+# def binary_search(lst, target):
+#     left=0
+#     right = len(lst)
+#     while left<=right:
+#         middle = (right + left) // 2
+       
+#         if lst[middle] == target:
+#             return middle
+#         elif lst[middle] < target:
+#             left = middle + 1
+#         else:
+#             right = middle - 1
+#     return -1
+
+# lst = [1, 3, 5, 7, 9, 11, 13, 15]
+# target = 11
+# print(binary_search(lst, target))
+
+
+#week 8
+
+#problem 2 Node Sum 
+
+# class TreeNode:
+#     def __init__(self, val, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+# def check_tree(root):
+#     return root.val == (root.left.val + root.right.val) if root else True
+
+# ex = TreeNode(10, TreeNode(4), TreeNode(6))
+# print(check_tree(ex))  # Output: True
+#TIME COMPLEXITY O(1)  SPACE COMPLEXITY O(1)
+
+#Porblem 3: Node sum II
+#Given the root of a binary tree that has at most 3 nodes: the root, 
+# #its left child, and its right child, return True if the value of the root is equal to the sum of the values 
+# #of its two children. Return False otherwise.
+class TreeNode:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def check_tree(root):
+    if not root or (not root.left and not root.rigth):
+        return False
+    # Check if both left and right children are present
+    if not root.left:
+        return root.rigth.val == root.val
+    if not root.right:
+        return root.left.val == root.val
+    return root.val ==(root.left.val + root.right.val)
+
+    
+ex = TreeNode(10, TreeNode(4))
+print(check_tree(ex))  

@@ -92,11 +92,74 @@
 # s = list("hello")
 # print(reverse_string(s)) # Output: "olleh"
 
-def find_pair_sum(s, target):
- # two pointers solution
-    left = 0
-    right = len(s) - 1
-    while left < right:
-        current_sum = s[left] + s[right]
-        if current_sum == target:
-           return True
+# def find_pair_sum(s, target):
+#  # two pointers solution
+#     left = 0
+#     right = len(s) - 1
+#     while left < right:
+#         current_sum = s[left] + s[right]
+#         if current_sum == target:
+#            return True
+
+#assigment week 7
+
+# def find_val(names, val):
+#    if val in names:
+#       for i in range(len(names)):
+#          if names[i] == val:
+#              return i
+#    else:
+#       return -1
+
+# names = ["ana", 'beric','juan']
+# val = 'juan'
+# print(find_val(names,val ))
+
+# #given two integers x and n , n>= 0 write a function 
+# #that recursively computes and returns x^n
+
+# def power(x, n):
+#    if n == 0:  # Base case: any number to the power of 0 is 1
+#       return 1
+#    else:  # Recursive case
+#       return x * power(x, n - 1)
+
+# x = 2
+# n = 3
+# print(power(x, n))  # Output: 8
+
+# given a list of integers sorted in non-decreasing order starting and 
+#ending position of a given target value. return the result as a list in the form
+#of a [start position, end_position]
+#if target is not found in the list return [-1,-1 ]
+#solution must be 0log(n)
+
+# def search_range(nums, target):
+#    def find_bound(is_first, left, right):
+#       if left > right:
+#          return -1
+#       mid = (left + right) // 2
+#       if nums[mid] == target:
+#          if is_first:
+#             if mid == left or nums[mid - 1] != target:
+#                return mid
+#             return find_bound(is_first, left, mid - 1)
+#          else:
+#             if mid == right or nums[mid + 1] != target:
+#                return mid
+#             return find_bound(is_first, mid + 1, right)
+#       elif nums[mid] < target:
+#          return find_bound(is_first, mid + 1, right)
+#       else:
+#          return find_bound(is_first, left, mid - 1)
+
+#    start = find_bound(True, 0, len(nums) - 1)
+#    if start == -1:
+#       return [-1, -1]
+#    end = find_bound(False, 0, len(nums) - 1)
+#    return [start, end]
+
+# nums = [5, 7, 7, 8, 8, 10]
+# target = 8
+# print(search_range(nums, target))  # Output: [3, 4]
+
