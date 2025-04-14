@@ -163,3 +163,91 @@
 # target = 8
 # print(search_range(nums, target))  # Output: [3, 4]
 
+#week 8
+
+# class TreeNode():
+#     def __init__(self, value, left=None, right=None):
+#          self.val = value
+#          self.left = left
+#          self.right = right
+#     def find(root, target):
+#         if not root:
+#             return False
+#         if root.value == target:
+#             return True
+#         return find(root.left, target) and find(root.right, target)
+# root = TreeNode(1)
+# root.left = TreeNode(2)
+# root.right = TreeNode(3)
+# root.left.left = TreeNode(4)
+# root.left.right = TreeNode(5)
+
+# output = find(root, 3)
+
+
+
+# class TreeNode():
+#     def __init__(self, value, left=None, right=None):
+#          self.val = value
+#          self.left = left
+#          self.right = right
+# def mystery_function(root):
+#         if not root:
+#             return 0
+#         return 1 + mystery_function(root.left) + mystery_function(root.right)
+    
+# root = TreeNode(1)
+# root.left = TreeNode(2)
+# root.right = TreeNode(3)
+# root.left.left = TreeNode(4)
+
+# output = mystery_function(root)
+# print(output)  # Output the result
+
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+import ast
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+#
+# Complete the 'insert_node' function below.
+#
+# The function is expected to return a TreeNode.
+# The function accepts following parameters:
+#  1. TreeNode root
+#  2. INTEGER val
+#
+
+def insert_node(root, val):
+    # Write your code here
+    if root is None:
+        return TreeNode(val)  # Create a new TreeNode when root is None
+    if val < root.val:
+        root.left = insert_node(root.left, val)
+    elif val > root.val:
+        root.right = insert_node(root.right, val)
+    return root  # No need to reassign root.val
+
+# Helper function to print the tree in-order for verification
+def print_tree_in_order(root):
+    if root is not None:
+        print_tree_in_order(root.left)
+        print(root.val, end=" ")
+        print_tree_in_order(root.right)
+
+# Test the function
+root = TreeNode(10)
+root = insert_node(root, 3)
+print_tree_in_order(root)  # Output: 3 10

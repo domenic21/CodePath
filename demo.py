@@ -616,26 +616,87 @@
 # print(check_tree(ex))  # Output: True
 #TIME COMPLEXITY O(1)  SPACE COMPLEXITY O(1)
 
-#Porblem 3: Node sum II
-#Given the root of a binary tree that has at most 3 nodes: the root, 
-# #its left child, and its right child, return True if the value of the root is equal to the sum of the values 
-# #of its two children. Return False otherwise.
-class TreeNode:
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+# #Porblem 3: Node sum II
+# #Given the root of a binary tree that has at most 3 nodes: the root, 
+# # #its left child, and its right child, return True if the value of the root is equal to the sum of the values 
+# # #of its two children. Return False otherwise.
+# class TreeNode:
+#     def __init__(self, val, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
-def check_tree(root):
-    if not root or (not root.left and not root.rigth):
-        return False
-    # Check if both left and right children are present
-    if not root.left:
-        return root.rigth.val == root.val
-    if not root.right:
-        return root.left.val == root.val
-    return root.val ==(root.left.val + root.right.val)
+# def check_tree(root):
+#     if not root or (not root.left and not root.rigth):
+#         return False
+#     # Check if both left and right children are present
+#     if not root.left:
+#         return root.rigth.val == root.val
+#     if not root.right:
+#         return root.left.val == root.val
+#     return root.val ==(root.left.val + root.right.val)
 
     
-ex = TreeNode(10, TreeNode(4))
-print(check_tree(ex))  
+# ex = TreeNode(10, TreeNode(4))
+# print(check_tree(ex))  
+
+
+# class TreeNode():
+#     def __init__(self, value, left=None, right=None):
+#          self.val = value
+#          self.left = left
+#          self.right = right
+         
+# def is_univalued(root):
+#         if not root:
+#             return True  # An empty tree is considered univalued
+        
+#         def dfs(node):
+#             if not node:
+#                 return True  # because there is nothing to compare
+#             if node.val != root.val:
+#                 return False
+#             return dfs(node.left) and dfs(node.right)
+        
+#         return dfs(root)
+   
+
+       
+# node_one = TreeNode(1)
+# node_two = TreeNode(1)
+# node_three = TreeNode(1)
+
+# node_one.left = node_two    # Node two is the left child of node one
+# node_one.right = node_three # Node three is the right child of node one
+
+# # Call the is_univalued function
+# print(is_univalued(node_one))  # Output: True
+
+#problem 2 week 8n session 2
+
+# class TreeNode():
+#      def __init__(self, value, left=None, right=None):
+#          self.val = value
+#          self.left = left
+#          self.right = right
+   
+# def insert(root, key, value):
+#     # "
+#     # Insert a new node with the given `key` and `value` into the binary search tree rooted at `root`.
+#     # Return the root of the modified tree.
+#     # "
+#     if root is None:
+#         return TreeNode(key, value)
+
+#     if key < root.val:
+#         root.left = insert(root.left, key, value)
+#     elif key > root.val:
+#         root.right = insert(root.right, key, value)
+#     else:
+#         # Key exists, update the node's value
+#         root.val = value
+
+#     return root
+
+# print(insert(TreeNode(10, TreeNode(5), TreeNode(15)), key = 7, value = "new"))
+
